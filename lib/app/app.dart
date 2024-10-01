@@ -1,0 +1,135 @@
+import 'package:lms_alpha/services/auth_service.dart';
+import 'package:lms_alpha/ui/bottom_sheets/notice/notice_sheet.dart';
+import 'package:lms_alpha/ui/dialogs/info_alert/info_alert_dialog.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/Change%20Password/account_password/account_password_view.dart';
+import 'package:lms_alpha/ui/views/bottom_navigation_bar/bottom_navigation_bar_view.dart';
+import 'package:lms_alpha/ui/views/home/home_view.dart';
+import 'package:lms_alpha/ui/views/startup/startup_view.dart';
+import 'package:stacked/stacked_annotations.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:lms_alpha/ui/views/auth/login/login_view.dart';
+import 'package:lms_alpha/ui/views/auth/email_verification/email_verification_view.dart';
+import 'package:lms_alpha/ui/views/auth/recoverpassword/recoverpassword_view.dart';
+import 'package:lms_alpha/ui/views/auth/back_to_login/back_to_login_view.dart';
+import 'package:lms_alpha/ui/views/auth/change_password/change_password_view.dart';
+import 'package:lms_alpha/ui/views/auth/verify_account/verify_account_view.dart';
+import 'package:lms_alpha/ui/views/auth/phone_number_verification/phone_number_verification_view.dart';
+import 'package:lms_alpha/ui/views/auth/verify_phone_account/verify_phone_account_view.dart';
+import 'package:lms_alpha/ui/views/createAndWrite/create_and_write/create_and_write_view.dart';
+import 'package:lms_alpha/ui/views/createAndWrite/sub_tabs/health_and_afety/health_and_afety_view.dart';
+import 'package:lms_alpha/ui/views/incidents/incidents_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/create_view_health_and_safety_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/hse_main/hse_main_view.dart';
+import 'package:lms_alpha/ui/views/business_info/business_info_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/loss_detail/loss_detail_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/potential_risk/potential_risk_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/residual_risk/residual_risk_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/personal/personal_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/capa/capa_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/attachment/attachment_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/links/links_view.dart';
+import 'package:lms_alpha/ui/views/dash_board/dash_board_view.dart';
+import 'package:lms_alpha/ui/views/search/search_view.dart';
+import 'package:lms_alpha/ui/views/recent_search/recent_search_view.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/Languges/choose_language/choose_language_view.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/Phone%20No/verificationScreen/verify_phone_number/verify_phone_number_view.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/Contact%20Support/contact_support/contact_support_view.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/account_and_setting/account_and_setting_view.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/Phone%20No/verificationScreen/verify_password/verify_password_view.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/Phone%20No/update_phone_number/update_phone_number_view.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/Change%20Email/send_verification_code/send_verification_code_view.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/Change%20Email/verify_email/verify_email_view.dart';
+import 'package:lms_alpha/ui/views/Account%20and%20Setting/Change%20Email/update_email/update_email_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/investigation/investigation_view.dart';
+import 'package:lms_alpha/ui/views/create_view_health_and_safety/tabs/action_item/action_item_view.dart';
+import 'package:lms_alpha/ui/views/lession_learn/lession_learn_view.dart';
+import 'package:lms_alpha/ui/views/prevention_actions/prevention_actions_view.dart';
+import 'package:lms_alpha/ui/views/improvement_plan/improvement_plan_view.dart';
+import 'package:lms_alpha/ui/views/createAndWrite/sub_tabs/asset_screen/asset_screen_view.dart';
+import 'package:lms_alpha/ui/views/asset_form_templates/asset_form_templates_view.dart';
+import 'package:lms_alpha/ui/views/asset_form_card/asset_form_card_view.dart';
+import 'package:lms_alpha/ui/views/template_details/template_details_view.dart';
+import 'package:lms_alpha/ui/views/communication/communication_view.dart';
+import 'package:lms_alpha/ui/views/meeting_view/meeting_view_view.dart';
+import 'package:lms_alpha/ui/views/clander/clander_view.dart';
+import 'package:lms_alpha/ui/views/calender_yearly/calender_yearly_view.dart';
+import 'package:lms_alpha/ui/views/calender_monthly/calender_monthly_view.dart';
+import 'package:lms_alpha/ui/views/detail_calender/detail_calender_view.dart';
+import 'package:lms_alpha/ui/views/add_task/add_task_view.dart';
+// @stacked-import
+
+@StackedApp(
+  routes: [
+    MaterialRoute(page: HomeView),
+    MaterialRoute(page: StartupView),
+    MaterialRoute(page: LoginView),
+    MaterialRoute(page: EmailVerificationView),
+    MaterialRoute(page: RecoverpasswordView),
+    MaterialRoute(page: BackToLoginView),
+    MaterialRoute(page: ChangePasswordView),
+    MaterialRoute(page: VerifyAccountView),
+    MaterialRoute(page: PhoneNumberVerificationView),
+    MaterialRoute(page: VerifyPhoneAccountView),
+    MaterialRoute(page: BottomNavigationBarView),
+
+    MaterialRoute(page: CreateAndWriteView),
+    MaterialRoute(page: HealthAndAfetyView),
+    MaterialRoute(page: IncidentsView),
+    MaterialRoute(page: CreateViewHealthAndSafetyView),
+    MaterialRoute(page: HseMainView),
+    MaterialRoute(page: BusinessInfoView),
+    MaterialRoute(page: LossDetailView),
+    MaterialRoute(page: PotentialRiskView),
+    MaterialRoute(page: ResidualRiskView),
+    MaterialRoute(page: PersonalView),
+    MaterialRoute(page: CapaView),
+    MaterialRoute(page: AttachmentView),
+    MaterialRoute(page: LinksView),
+    MaterialRoute(page: DashBoardView),
+    MaterialRoute(page: SearchView),
+    MaterialRoute(page: RecentSearchView),
+    MaterialRoute(page: AccountPasswordView),
+    MaterialRoute(page: ChooseLanguageView),
+    MaterialRoute(page: VerifyPhoneNumberView),
+    MaterialRoute(page: ContactSupportView),
+    MaterialRoute(page: AccountAndSettingView),
+    MaterialRoute(page: VerifyPasswordView),
+    MaterialRoute(page: UpdatePhoneNumberView),
+    MaterialRoute(page: SendVerificationCodeView),
+    MaterialRoute(page: VerifyEmailView),
+    MaterialRoute(page: UpdateEmailView),
+    MaterialRoute(page: InvestigationView),
+    MaterialRoute(page: ActionItemView),
+    MaterialRoute(page: LessionLearnView),
+    MaterialRoute(page: PreventionActionsView),
+    MaterialRoute(page: ImprovementPlanView),
+    MaterialRoute(page: AssetScreenView),
+    MaterialRoute(page: AssetFormTemplatesView),
+    MaterialRoute(page: AssetFormCardView),
+    MaterialRoute(page: TemplateDetailsView),
+    MaterialRoute(page: CommunicationView),
+    MaterialRoute(page: MeetingViewView),
+    MaterialRoute(page: ClanderView),
+    MaterialRoute(page: CalenderYearlyView),
+    MaterialRoute(page: CalenderMonthlyView),
+    MaterialRoute(page: DetailCalenderView),
+    MaterialRoute(page: AddTaskView),
+// @stacked-route
+  ],
+  dependencies: [
+    LazySingleton(classType: BottomSheetService),
+    LazySingleton(classType: DialogService),
+    LazySingleton(classType: NavigationService),
+    LazySingleton(classType: AuthService),
+    // @stacked-service
+  ],
+  bottomsheets: [
+    StackedBottomsheet(classType: NoticeSheet),
+    // @stacked-bottom-sheet
+  ],
+  dialogs: [
+    StackedDialog(classType: InfoAlertDialog),
+    // @stacked-dialog
+  ],
+)
+class App {}
